@@ -17,14 +17,27 @@ app.use('/api/experiments', experimentRoutes);
 
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/lablog';
+const { MongoMemoryServer } = require('mongodb-memory-server');
 
-mongoose.connect(MONGODB_URI)
+mongoose.connect(MONGODB_URI, { serverSelectionTimeoutMS: 5000 })
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
   })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
+  .catch(async (error) => {
+    console.error('Error connecting to MongoDB:', error.message);
+    console.log('Falling back to In-Memory MongoDB...');
+    try {
+      const mongoServer = await MongoMemoryServer.create();
+      const uri = mongoServer.getUri();
+      await mongoose.connect(uri);
+      console.log('Connected to In-Memory MongoDB');
+      app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+      });
+    } catch (fallbackError) {
+      console.error('Error starting in-memory database:', fallbackError);
+    }
   });
