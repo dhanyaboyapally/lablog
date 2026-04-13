@@ -73,7 +73,13 @@ Once it compiles, simply head over to **`http://localhost:4200`** in your browse
 
 Check out the live frontend deployment here: **[LabLog Live Demo](https://dhanyaboyapally.github.io/lablog/)**
 
-> ⚠️ **Note:** Being a full-stack MEAN application, the API backend needs to be hosted on a cloud provider like Render or Heroku to fully supply the frontend pages with their database context interactively!
+### 📖 About the App
+
+LabLog is an interactive tracking system configured uniquely to manage laboratory experiments end-to-end! Through a fluid, responsive user interface, users can smoothly:
+- **Create** detailed logs for their newly active science experiments.
+- **Monitor** ongoing trials directly from a dynamic, card-based dashboard.
+- **Update** and meticulously track the statuses of completion and testing results.
+- **Organize** all active laboratory reporting digitally in one accessible place.
 
 ---
 
