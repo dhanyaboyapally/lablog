@@ -69,9 +69,9 @@ Once it compiles, simply head over to **`http://localhost:4200`** in your browse
 
 ---
 
-## 🌎 Live Demo Placeholder
+## 🌎 Live Demo
 
-If deployed to GitHub Pages, the frontend logic will be hosted. Note that GitHub Pages strictly supports statically spun websites. 
+Check out the live frontend deployment here: **[LabLog Live Demo](https://dhanyaboyapally.github.io/lablog/)**
 
 > ⚠️ **Note:** Being a full-stack MEAN application, the API backend needs to be hosted on a cloud provider like Render or Heroku to fully supply the frontend pages with their database context interactively!
 
