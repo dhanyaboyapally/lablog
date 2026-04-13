@@ -1,61 +1,82 @@
-# LabLog - Mini MEAN Stack Application
+<div align="center">
+  <h1>🔬 LabLog - Mini MEAN Stack Application</h1>
+  <p><i>A sleek and efficient web application for tracking and logging laboratory experiments! Built tightly with the modern MEAN stack.</i></p>
+</div>
 
-LabLog is a full-stack MEAN (MongoDB, Express, Angular, Node.js) web application designed for simple laboratory experiment tracking and logging.
+---
 
-## Project Structure
+## 🛠️ Tech Stack 
 
-This repository contains two main directories:
-- `frontend`: An Angular 21 project for the user interface.
-- `backend`: A Node.js and Express backend server that connects to a MongoDB database.
+- **Frontend:** Angular 21 🅰️
+- **Backend:** Node.js 🟩 & Express.js 🚀
+- **Database:** MongoDB 🍃
+- **Styling:** Vanilla CSS 🎨
 
-## Prerequisites
+---
 
-- Node.js installed
-- Angular CLI installed globally (`npm install -g @angular/cli`)
-- A MongoDB cluster or local instance running
+## 📂 Project Structure
 
-## Getting Started
+This repository is split perfectly into two main parts. Each is self-contained and operates seamlessly!
 
-### 1. Backend Setup
+- 📁 **`/frontend`** — Contains our lively user interface built in Angular. This directory includes all the responsive components like `dashboard`, `experiment-card`, and `experiment-detail`.
+- 📁 **`/backend`** — Houses our robust Express API server handling routing, models, and controllers for seamless integration with the MongoDB database.
 
-1. Open a terminal and navigate to the `backend` directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Update your MongoDB connection string in the configuration if required.
-4. Start the backend server:
-   ```bash
-   npm start
-   ```
+---
 
-### 2. Frontend Setup
+## 🚀 Getting Started
 
-1. Open a new terminal and navigate to the `frontend` directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Angular development server:
-   ```bash
-   ng serve
-   ```
+Ready to spin up the application locally? Follow these quick sections.
 
-4. Open your browser and navigate to `http://localhost:4200` to view the application.
+### ⚙️ Prerequisites
 
-## Technologies Used
+Before you begin, ensure you have the following installed on your machine:
+- [Node.js](https://nodejs.org/en/) & npm 📦
+- Angular CLI (`npm install -g @angular/cli`) 🅰️
+- A running MongoDB cluster or local instance 🍃
 
-- **MongoDB / Mongoose**: Database and ODM
-- **Express / Node.js**: Backend API framework
-- **Angular**: Frontend framework
-- **TypeScript**: Typed language for frontend and potentially backend
+### 🌐 1. Backend Setup (The Engine)
 
-## License
+Open a fresh terminal and let's get the server running.
 
-This project is licensed under the MIT License.
+```bash
+# 1. Navigate to the backend directory
+cd backend
+
+# 2. Install dependencies
+npm install
+
+# 3. Add your Database configuration (if applicable, in server.js or .env)
+# 4. Start the server! 🎉
+npm start
+```
+
+### 💫 2. Frontend Setup (The Interface)
+
+Open a new terminal to start the client-side of the application.
+
+```bash
+# 1. Navigate to the frontend window
+cd frontend
+
+# 2. Install dependencies
+npm install
+
+# 3. Launch the development server
+ng serve
+```
+
+Once it compiles, simply head over to **`http://localhost:4200`** in your browser and verify everything is working smoothly ✨!
+
+---
+
+## 🌎 Live Demo Placeholder
+
+If deployed to GitHub Pages, the frontend logic will be hosted. Note that GitHub Pages strictly supports statically spun websites. 
+
+> ⚠️ **Note:** Being a full-stack MEAN application, the API backend needs to be hosted on a cloud provider like Render or Heroku to fully supply the frontend pages with their database context interactively!
+
+---
+
+## 📜 License
+
+This project is licensed strictly under the MIT License. Feel free to copy, tweak, and use it in your lab reporting! 📝
