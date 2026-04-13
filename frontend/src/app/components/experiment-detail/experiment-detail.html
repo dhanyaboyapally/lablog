@@ -1,0 +1,59 @@
+<div class="notebook-container">
+  <div class="nav-controls">
+    <a routerLink="/dashboard" class="back-link">← Back to Dashboard</a>
+    <div class="action-buttons" *ngIf="experiment">
+      <a [routerLink]="['/experiment', experiment._id, 'edit']" class="btn-edit">✏️ Edit</a>
+      <button class="btn-delete" (click)="onDelete()">🗑️ Delete</button>
+    </div>
+  </div>
+
+  <div class="loading-state" *ngIf="loading">Flipping pages... 📖</div>
+  <div class="error-state" *ngIf="error">{{ error }}</div>
+
+  <div class="notebook-page" *ngIf="experiment">
+    <div class="notebook-header">
+      <div class="notebook-meta">
+        <span class="topic">{{ experiment.topic }}</span>
+        <span class="date">{{ experiment.date | date:'longDate' }}</span>
+      </div>
+      <h1 class="notebook-title">{{ experiment.title }}</h1>
+      <app-status-badge [status]="experiment.status"></app-status-badge>
+    </div>
+
+    <div class="notebook-content">
+      
+      <div class="section" *ngIf="experiment.hypothesis">
+        <div class="section-title"><h3>Hypothesis 💭</h3></div>
+        <p class="section-text">{{ experiment.hypothesis }}</p>
+      </div>
+
+      <div class="split-section">
+        <div class="section half" *ngIf="experiment.materials">
+          <div class="section-title"><h3>Materials 🧪</h3></div>
+          <p class="section-text whitespace-pre">{{ experiment.materials }}</p>
+        </div>
+
+        <div class="section half" *ngIf="experiment.procedure">
+          <div class="section-title"><h3>Procedure 📝</h3></div>
+          <p class="section-text whitespace-pre">{{ experiment.procedure }}</p>
+        </div>
+      </div>
+
+      <div class="section" *ngIf="experiment.observations">
+        <div class="section-title"><h3>Observations 👁️</h3></div>
+        <p class="section-text whitespace-pre">{{ experiment.observations }}</p>
+      </div>
+
+      <div class="section" *ngIf="experiment.results">
+        <div class="section-title"><h3>Results 📊</h3></div>
+        <p class="section-text whitespace-pre">{{ experiment.results }}</p>
+      </div>
+
+      <div class="section conclusion" *ngIf="experiment.conclusion">
+        <div class="section-title"><h3>Conclusion 🎯</h3></div>
+        <p class="section-text">{{ experiment.conclusion }}</p>
+      </div>
+
+    </div>
+  </div>
+</div>

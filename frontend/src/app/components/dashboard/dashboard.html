@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <div class="title-area">
+      <h2>My Experiments</h2>
+      <span class="count-badge">{{ filteredExperiments.length }}</span>
+    </div>
+    
+    <div class="controls-area">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          placeholder="Search by title or topic..." 
+          [(ngModel)]="searchTerm"
+          (input)="applyFilters()"
+        >
+      </div>
+
+      <select [(ngModel)]="statusFilter" (change)="applyFilters()" class="filter-dropdown">
+        <option value="All">All Statuses</option>
+        <option value="Draft">Draft</option>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <a routerLink="/experiment/new" class="btn-primary desktop-add">Add +</a>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-state" style="text-align: center; padding: 2rem;">Loading experiments... 📖</div>
+
+  <div class="experiments-grid" *ngIf="!loading && experiments.length > 0">
+    <app-experiment-card 
+      *ngFor="let exp of filteredExperiments" 
+      [experiment]="exp"
+      (delete)="onDeleteExperiment($event)">
+    </app-experiment-card>
+    
+    <div *ngIf="filteredExperiments.length === 0" class="no-results">
+        <p>No experiments match your search criteria. 🥺</p>
+    </div>
+  </div>
+
+  <app-empty-state *ngIf="!loading && experiments.length === 0"></app-empty-state>
+</div>

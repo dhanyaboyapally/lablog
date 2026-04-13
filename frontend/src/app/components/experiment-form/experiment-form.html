@@ -1,0 +1,83 @@
+<div class="form-container">
+  <div class="form-header">
+    <a routerLink="/dashboard" class="back-link">← Back to Dashboard</a>
+    <h2>{{ isEditMode ? 'Edit Experiment' : 'New Experiment' }} ✨</h2>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</div>
+  <div *ngIf="loading && isEditMode" class="loading-msg">Loading...</div>
+
+  <form [formGroup]="experimentForm" (ngSubmit)="onSubmit()" *ngIf="!loading || !isEditMode">
+    <div class="form-row">
+      <div class="form-group flex-2">
+        <label for="title">Experiment Title <span class="required">*</span></label>
+        <input id="title" type="text" formControlName="title" placeholder="E.g., Plant Growth under Blue Light">
+        <div class="validation-error" *ngIf="experimentForm.get('title')?.touched && experimentForm.get('title')?.invalid">
+          Title is required.
+        </div>
+      </div>
+      
+      <div class="form-group flex-1">
+        <label for="status">Status</label>
+        <select id="status" formControlName="status">
+          <option value="Draft">Draft</option>
+          <option value="Ongoing">Ongoing</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group flex-1">
+        <label for="topic">Topic / Subject <span class="required">*</span></label>
+        <input id="topic" type="text" formControlName="topic" placeholder="Biology">
+        <div class="validation-error" *ngIf="experimentForm.get('topic')?.touched && experimentForm.get('topic')?.invalid">
+          Topic is required.
+        </div>
+      </div>
+      <div class="form-group flex-1">
+        <label for="date">Date <span class="required">*</span></label>
+        <input id="date" type="date" formControlName="date">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="hypothesis">Hypothesis</label>
+      <textarea id="hypothesis" formControlName="hypothesis" rows="2" placeholder="What do you predict will happen?"></textarea>
+    </div>
+
+    <div class="form-row stretch-row">
+      <div class="form-group flex-1">
+        <label for="materials">Materials</label>
+        <textarea id="materials" formControlName="materials" rows="4" placeholder="- Item 1&#10;- Item 2"></textarea>
+      </div>
+      <div class="form-group flex-1">
+        <label for="procedure">Procedure</label>
+        <textarea id="procedure" formControlName="procedure" rows="4" placeholder="1. Step one&#10;2. Step two"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="observations">Observations</label>
+      <textarea id="observations" formControlName="observations" rows="3" placeholder="What did you see?"></textarea>
+    </div>
+
+    <div class="form-row stretch-row">
+      <div class="form-group flex-1">
+        <label for="results">Results</label>
+        <textarea id="results" formControlName="results" rows="3" placeholder="Data and measurements"></textarea>
+      </div>
+      <div class="form-group flex-1">
+        <label for="conclusion">Conclusion</label>
+        <textarea id="conclusion" formControlName="conclusion" rows="3" placeholder="Was your hypothesis correct?"></textarea>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <a routerLink="/dashboard" class="btn-cancel">Cancel</a>
+      <button type="submit" class="btn-primary" [disabled]="experimentForm.invalid || loading">
+        {{ isEditMode ? 'Save Changes' : 'Create Experiment' }}
+      </button>
+    </div>
+  </form>
+</div>

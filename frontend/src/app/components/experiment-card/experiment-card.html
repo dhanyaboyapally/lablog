@@ -1,0 +1,14 @@
+<div class="experiment-card">
+  <div class="card-header">
+    <app-status-badge [status]="experiment.status"></app-status-badge>
+    <span class="date">{{ experiment.date | date:'mediumDate' }}</span>
+  </div>
+  <div class="card-body">
+    <h3 class="title">{{ experiment.title }}</h3>
+    <span class="topic-tag">🏷️ {{ experiment.topic }}</span>
+  </div>
+  <div class="card-footer">
+    <a [routerLink]="['/experiment', experiment._id]" class="view-btn">View Details ✨</a>
+    <button class="icon-btn delete-btn" (click)="onDelete($event)" title="Delete Entry">🗑️</button>
+  </div>
+</div>
